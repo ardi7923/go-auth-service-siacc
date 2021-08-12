@@ -1,0 +1,97 @@
+{
+    "router": [
+        {
+            "group": "auth",
+            "item": [
+                {
+                    "name": "login create",
+                    "response_status": [
+                        200
+                    ],
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "endpoind": "/auth/login/create",
+                        "body": [
+                            {
+                                "key": "username",
+                                "value": "admin",
+                                "type": "text"
+                            },
+                            {
+                                "key": "password",
+                                "value": "admin",
+                                "type": "text"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "login process",
+                    "response_status": [
+                        200
+                    ],
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "endpoind": "/auth/login",
+                        "body": [
+                            {
+                                "key": "username",
+                                "value": "admin",
+                                "type": "text"
+                            },
+                            {
+                                "key": "password",
+                                "value": "admin",
+                                "type": "text"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "check token",
+                    "response_status": [
+                        200,
+                        406,
+                        400
+                    ],
+                    "request": {
+                        "method": "POST",
+                        "header": {
+                            "Content-Type": "application/json"
+                        },
+                        "endpoind": "/auth/token/check",
+                        "body": [
+                            {
+                                "key": "token",
+                                "value": "admin",
+                                "type": "text"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "group": "Health",
+            "item": [
+                {
+                    "name": "health check",
+                    "response_status": [
+                        200,
+                        406
+                    ],
+                    "request": {
+                        "method": "GET",
+                        "header": {
+                            "Content-Type": "application/json"
+                        },
+                        "endpoind": "/healt/ping",
+                        "body": []
+                    }
+                }
+            ]
+        }
+    ]
+}
